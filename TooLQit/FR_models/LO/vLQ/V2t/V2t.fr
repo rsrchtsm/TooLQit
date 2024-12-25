@@ -1,0 +1,103 @@
+(***************************************************************************************************************)
+(******                               FeynRules model file for V2t Leptoquark                             ******)
+(******                                              No-CKM                                               ******)
+(******                                        * Version 1.0.0 *                                          ******)
+(******                                                                                                   ******)
+(******                        Authors: (alphabetically) Arvind Bhaskar, Arijit Das,                      ******)
+(******                                 Atirek Kumar, Rachit Sharma, Subhadip Mitra,                      ******)
+(******                                 Tanumoy Mandal, and Yash Chaurasia.                               ******)
+(******                                                                                                   ******)
+(******                                See README.md for citation information.                            ******)
+(******                                                                                                   ******)
+(***************************************************************************************************************)
+
+(* ************************** *)
+(* *****  Information   ***** *)
+(* ************************** *)
+
+M$ModelName = "V2t";
+
+M$InteractionOrderHierarchy = {
+  {QCD, 1},
+  {QED, 2},
+  {QLQ, 3}
+};
+
+M$Parameters = {
+X21RL == {
+    	ParameterType    -> External,
+	ComplexParameter -> True,
+    	Indices          -> {Index[Generation], Index[Generation]},
+	BlockName        -> YUKV2tRL,
+    	Value            -> {X21RL[1,1] -> 0.0, X21RL[1,2] -> 0.0, X21RL[1,3] -> 0.0,
+                      	     X21RL[2,1] -> 0.0, X21RL[2,2] -> 0.0, X21RL[2,3] -> 0.0,
+                             X21RL[3,1] -> 0.0, X21RL[3,2] -> 0.0, X21RL[3,3] -> 0.0},
+    	TeX              -> Superscript[Subscript[X, "21"],RL],
+	InteractionOrder -> {QLQ, 1},
+    	Description      -> "v21 leptoquark RL Yukawa coupling matrix"
+},
+	  
+kappa == {
+	    ParameterType   -> External,
+	    BlockName 	    -> kappa,
+	    OrderBlock      -> 1, 
+	    Value 	    -> 0,
+	    TeX 	     -> kp,  
+	    Description      -> "Kappa"
+}
+};
+
+M$ClassesDescription = {
+V[610] == {
+    ClassName        -> v211,
+    Mass             -> {Mv211, 1000},
+    Width            -> {Wv211, 10},
+    SelfConjugate    -> False,
+    PropagatorLabel  -> "v211",
+    PropagatorType   -> sine,
+    PropagatorArrow  -> Forward,
+    QuantumNumbers   -> {Q -> -1/3, LeptonNumber -> 1},
+    Indices          -> {Index[Colour]},
+    PDG		     -> 8200021,
+    ParticleName     -> "v211",
+    AntiParticleName -> "v211~",
+    FullName         -> "v211"
+},
+
+V[640] == {
+    ClassName        -> v212,
+    Mass             -> {Mv212, 1000},
+    Width            -> {Wv212, 10},
+    SelfConjugate    -> False,
+    PropagatorLabel  -> "v212",
+    PropagatorType   -> sine,
+    PropagatorArrow  -> Forward,
+    QuantumNumbers   -> {Q -> 2/3, LeptonNumber -> 1},
+    Indices          -> {Index[Colour]},
+    PDG	      	     -> 8200022,
+    ParticleName     -> "v212",
+    AntiParticleName -> "v212~",
+    FullName         -> "v212"
+},
+
+V[600] == {
+    ClassName      -> v21,
+    Unphysical    -> True,
+    Indices        -> {Index[SU2D], Index[Colour]},
+    FlavorIndex    -> SU2D,
+    SelfConjugate  -> False,
+    QuantumNumbers -> {Y -> 1/6},
+    Definitions    -> { v21[mu_,1,cc_] :> v212[mu,cc], v21[mu_,2,cc_] :> v211[mu,cc]}
+}
+};
+
+(* ************************** *)
+(* *****  Lagrangian    ***** *)
+(* ************************** *)
+
+Lv2tKin := Block[{mu,nu,a,aa,bb,cc}, ExpandIndices[-(1/2)(DC[v21bar[nu,a,aa],mu] - DC[v21bar[mu,a,aa],nu]) (DC[v21[nu,a,aa],mu] - DC[v21[mu,a,aa],nu]) - I gs kappa v21bar[mu,a,aa] FS[G,mu,nu,cc] T[cc,aa,bb] v21[nu,a,bb]]];
+
+Lv2tint :=  - X21RL[a,b] (CC[uqbar[i,a,ss]] Ga[mu,i,j] ProjM[j,k] l[k,b] v211bar[mu,ss]- CC[uqbar[i,a,ss]] Ga[mu,i,j] ProjM[j,k] vl[k,b] v212bar[mu,ss]);
+
+LBSM := Lv2tKin + Lv2tint + HC[Lv2tint];
+

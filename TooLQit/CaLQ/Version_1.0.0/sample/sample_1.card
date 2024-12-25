@@ -1,0 +1,8 @@
+U1              # lepqtoquark model
+2250			# mass
+X10RR[1,3] X10RR[3,3]    # couplings
+no				# ignore single and pair
+2				# significance
+0.1				# systematic error
+0               # width constant
+0

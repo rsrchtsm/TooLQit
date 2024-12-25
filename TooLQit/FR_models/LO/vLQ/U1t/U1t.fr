@@ -1,0 +1,90 @@
+(***************************************************************************************************************)
+(******                               FeynRules model file for U1t Leptoquark                             ******)
+(******                                              No-CKM                                               ******)
+(******                                        * Version 1.0.0 *                                          ******)
+(******                                                                                                   ******)
+(******                        Authors: (alphabetically) Arvind Bhaskar, Arijit Das,                      ******)
+(******                                 Atirek Kumar, Rachit Sharma, Subhadip Mitra,                      ******)
+(******                                 Tanumoy Mandal, and Yash Chaurasia.                               ******)
+(******                                                                                                   ******)
+(******                                See README.md for citation information.                            ******)
+(******                                                                                                   ******)
+(***************************************************************************************************************)
+
+(* ************************** *)
+(* *****  Information   ***** *)
+(* ************************** *)
+
+M$ModelName = "U1t";
+
+IndexRange[Index[SU2S]] = Unfold[Range[1]]; 
+IndexStyle[SU2S,i];
+
+M$InteractionOrderHierarchy = {
+  {QCD, 1},
+  {QED, 2},
+  {QLQ, 3}
+};
+
+M$Parameters = {
+X11RR == {
+    	ParameterType    -> External,
+	ComplexParameter -> False,
+    	Indices          -> {Index[Generation], Index[Generation]},
+	BlockName        -> YUKU1tRR,
+    	Value            -> {X11RR[1,1] -> 0.0, X11RR[1,2] -> 0.0, X11RR[1,3] -> 0.0,
+                      	     X11RR[2,1] -> 0.0, X11RR[2,2] -> 0.0, X11RR[2,3] -> 0.0,
+                             X11RR[3,1] -> 0.0, X11RR[3,2] -> 0.0, X11RR[3,3] -> 0.0},
+    	TeX              -> Superscript[Subscript[x,11],RR],
+	InteractionOrder -> {QLQ, 1},
+    	Description      -> "u11 leptoquark RR Yukawa coupling matrix"
+},
+
+kappa == {
+   ParameterType    -> External,
+   BlockName 	    -> kappa,
+   OrderBlock       -> 1, 
+   Value 	    -> 0,
+   TeX 	            -> kp,   
+   Description      -> "kappa"
+}  
+};
+
+M$ClassesDescription = {
+V[110] == {
+    ClassName        -> u115,
+    SelfConjugate    -> False,
+    Indices          -> {Index[Colour]},
+    Mass             -> {Mu115, 1000},
+    Width            -> {Wu115, 10},
+    QuantumNumbers   -> {Q -> 5/3, LeptonNumber -> -1},
+    PropagatorLabel  -> "u115",
+    PropagatorType   -> Sine,
+    PropagatorArrow  -> Forward,
+    PDG              -> 8200011,
+    ParticleName     -> "u115",
+    AntiParticleName -> "u115~",
+    FullName         -> "u1tilde"
+  },
+  
+V[210] == {
+    ClassName      -> u11,
+    Unphysical     -> True,
+    Indices        -> {Index[SU2S], Index[Colour]},
+    FlavorIndex    -> SU2S,
+    SelfConjugate  -> False,
+    QuantumNumbers -> {Y -> 5/3},
+    Definitions    -> {u11[mu_,1,cc_] :> u115[mu,cc]}
+}
+};
+
+(* ************************** *)
+(* *****   Lagrangian   ***** *)
+(* ************************** *)
+
+Lu1tKin := Block[{mu,nu,a,aa,bb,cc}, ExpandIndices[-(1/2)(DC[u11bar[nu,a,aa],mu] - DC[u11bar[mu,a,aa],nu]) (DC[u11[nu,a,aa],mu] - DC[u11[mu,a,aa],nu]) - I gs kappa u115bar[mu,aa] FS[G,mu,nu,cc] T[cc,aa,bb] u115[nu,bb]]];
+
+Lu1tint := X11RR[i,j] u115[mu,a] (uqbar[p,i,a] Ga[mu,p,q] ProjP[q,r] l[r,j]); 
+
+LBSM := Lu1tKin + Lu1tint + HC[Lu1tint];
+
