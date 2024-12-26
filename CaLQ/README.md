@@ -99,4 +99,4 @@ Options:
 - `--output-yes=[filename]`: Specify the name of output file (allowed values) (overwrites the existing file). Default: calq_yes.csv
 - `--output-no=[filename]`: Specify the name of output file (disallowed values) (overwrites the existing file). Default: calq_no.csv
 
-Currently only U1 & S1 leptoquark models are supported. Other leptoquark models will be added soon. Comments regarding the calculator can be emailed to [us](mailto:subhadip.mitra@iiit.ac.in).
+Currently only U1 & S1 leptoquark models are supported. Other leptoquark models will be added soon. Comments regarding the calculator can be emailed to subhadip<DOT>mitra<AT>iiit<DOT>ac<DOT>in).
