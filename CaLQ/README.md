@@ -87,7 +87,7 @@ To use the calculator in non-interactive mode, use the tag `-ni` or `--non-inter
 python3 calq.py -ni --input-card sample/sample_1.card --input-values sample/sample_1.vals --output-yes sample/sample_1_yes.csv --output-no sample/sample_1_no.csv --output-common sample/sample_1_common.csv
 ```
 
-```sh
+```sh.
 python3 calq.py [options]
 ```
 Options:
@@ -99,4 +99,4 @@ Options:
 - `--output-yes=[filename]`: Specify the name of output file (allowed values) (overwrites the existing file). Default: calq_yes.csv
 - `--output-no=[filename]`: Specify the name of output file (disallowed values) (overwrites the existing file). Default: calq_no.csv
 
-Currently only U1 & S1 leptoquark models are supported. Other leptoquark models will be added soon. Comments regarding the calculator can be emailed to subhadip<DOT>mitra<AT>iiit<DOT>ac<DOT>in).
+Currently only U1 & S1 leptoquark models are supported. Other leptoquark models will be added soon. Comments regarding the calculator can be emailed to subhadip"DOT"mitra"AT"iiit"DOT"ac"DOT"in).
