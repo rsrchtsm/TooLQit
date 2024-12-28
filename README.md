@@ -1,7 +1,7 @@
 # TooLQkit: The Leptoquark Toolkit
 <div align="center">
         
-[Arvind Bhaskar](https://inspirehep.net/authors/1821728)<sup>1</sup> , [Yash Chaurasia](https://inspirehep.net/authors/2627239)<sup>2</sup>, Arijit Das<sup>3</sup>, [Atirek Kumar]<sup>3</sup>, [Tanumoy Mandal](https://inspirehep.net/authors/1078070)<sup>3</sup>, [Subhadip Mitra](https://inspirehep.net/authors/1037136)<sup>2</sup>,[Cyrin Neeraj](https://inspirehep.net/authors/1904817)<sup>2</sup>, [Rachit Sharma](https://inspirehep.net/authors/2739739)<sup>3</sup>
+[Arvind Bhaskar](https://inspirehep.net/authors/1821728)<sup>1</sup> , [Yash Chaurasia](https://inspirehep.net/authors/2627239)<sup>2</sup>, Arijit Das<sup>3</sup>, Atirek Kumar<sup>2</sup>, [Tanumoy Mandal](https://inspirehep.net/authors/1078070)<sup>3</sup>, [Subhadip Mitra](https://inspirehep.net/authors/1037136)<sup>2</sup>,[Cyrin Neeraj](https://inspirehep.net/authors/1904817)<sup>2</sup>, [Rachit Sharma](https://inspirehep.net/authors/2739739)<sup>3</sup>
 <h6>
 
 <sup>1</sup>Institute of Physics, Sachivalaya Marg, Bhubaneswar 751 005, India
