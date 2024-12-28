@@ -22,4 +22,4 @@ Universal FeynRules Output (UFO) files suitable for simulating in MadGraph5. In 
 
 ## Bugs and queries
 
-Any queries or bugs regarding the calculator can be emailed to [us](arvind.bhaskar@iopb.res.in;subhadip.mitra@iiit.ac.in;cyrin.neeraj@research.iiit.ac.in)
+Any queries or bugs regarding the calculator can be emailed to arvind \[dot\] bhaskar \[at\] iopb \[dot\] res \[dot\] in; subhadip \[dot\] mitra \[at\] iiit \[dot\] ac \[dot\] in; cyrin \[dot\] neeraj \[at\] research \[dot\] iiit \[dot\] ac \[dot\] in .
