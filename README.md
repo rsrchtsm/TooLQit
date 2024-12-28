@@ -16,7 +16,7 @@
 </div>
 
 
-TooLQit is a LQ toolkit which contains leading order (LO) FeynRules models of all possible scalar and vector leptoquark (LQ) models. We provide the LQ models in the form of 
+TooLQit is a leptoquark (LQ) toolkit which contains leading order (LO) FeynRules models of all possible scalar and vector LQ models. We provide the LQ models in the form of 
 Universal FeynRules Output (UFO) files suitable for simulating in MadGraph5. In addition to this, we also provide the .fr files and the mathematica notebooks UFO files.
 
 
