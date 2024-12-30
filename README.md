@@ -1,4 +1,4 @@
-# TooLQkit: The Leptoquark Toolkit
+# TooLQit: The Leptoquark Toolkit
 <div align="center">
         
 [Arvind Bhaskar](https://inspirehep.net/authors/1821728)<sup>1</sup>, [Yash Chaurasia](https://inspirehep.net/authors/2627239)<sup>2</sup>, Arijit Das<sup>3</sup>, Atirek Kumar<sup>2</sup>, [Tanumoy Mandal](https://inspirehep.net/authors/1078070)<sup>3</sup>, [Subhadip Mitra](https://inspirehep.net/authors/1037136)<sup>2</sup>,
@@ -15,9 +15,8 @@
 </h6>
 </div>
 
-
-TooLQit is a leptoquark (LQ) toolkit which contains leading order (LO) FeynRules models of all possible scalar and vector LQ models. We provide the LQ models in the form of 
-Universal FeynRules Output (UFO) files suitable for simulating in MadGraph5. In addition to this, we also provide the .fr files and the mathematica notebooks UFO files.
+TooLQit is a leptoquark (LQ) tool kit which comprises of the Feynrules universal output files (UFO) of all the scalar and vector LQ models and 
+a CaLQ--a python based calculator for testing if the LQ model parameters (mass and couplings) are allowed by the LHC.
 
 
 ## Bugs and queries
