@@ -12,7 +12,6 @@ def checkIfFilesExist(files: List[str]):
             with open(file, 'w') as file:
                 pass
 
-
 def validateInputData(
     leptoquark_model: str,
     leptoquark_mass: str, 
@@ -61,6 +60,7 @@ def validateInputData(
             or (couplings_list[i][0] == 'X' and leptoquark_model in vector_leptoquark_models)
         ):
             raise ValueError("[Couplings error]: For scalar leptoquarks, the first letter should be Y & for vector leptoquarks it should be X. For valid format, refer to README")
+            # prRed("[Couplings error]: For scalar leptoquarks, the first letter should be Y & for vector leptoquarks it should be X. For valid format, refer to README")
         if couplings_list[i][1:3] != "10":
             raise ValueError(f"[Couplings error]: The second and third characters of {couplings_list[i]} should be '10'. For valid format, refer to README")
         if couplings_list[i][3] not in ["L", "R"]:

@@ -20,6 +20,16 @@ from utilities.colour import prRed, prBlueNoNewLine, prBlue
 from utilities.validate import validateInputData
 from calculate import calculate
 
+from prompt_toolkit import prompt
+from prompt_toolkit.completion import WordCompleter
+from prompt_toolkit.history import InMemoryHistory
+
+# interactive mode commands
+toolqit_cmds = ['import_model=', 'mass=', 'couplings=', 'extra_width=', 'ignore_single_pair=', 'significance=', 'systematic_error=', 'status', 'initiate', 'exit']
+cmd_completer = WordCompleter(toolqit_cmds, ignore_case=True)
+
+session_history = InMemoryHistory()
+
 
 def initiateInteractive():
     """
@@ -38,8 +48,9 @@ def initiateInteractive():
 
     # loop to input values. we will have to add validations here
     while True:
-        prBlueNoNewLine("calq > ")
-        inpt = input()
+        # prBlueNoNewLine("calq > ")
+        inpt = prompt("calq > ", completer=cmd_completer, 
+                      history=session_history)
         s = inpt.split("=")
         if (":" in inpt):
             s = inpt.split(":")
@@ -78,10 +89,11 @@ def initiateInteractive():
         elif s[0].strip() == "help":
             printHelp()
         elif s[0].strip() == "initiate":
-            leptoquark_parameters, _ = validateInputData(leptoquark_model, leptoquark_mass, couplings, ignore_single_pair_processes, significance, systematic_error, extra_width, luminosity)
-            leptoquark_parameters.couplings_values = [" ".join(["0"] * len(couplings))]
-            sortCouplingsAndValuesInteractive(leptoquark_parameters)
-            calculate(leptoquark_parameters, InputMode.INTERACTIVE)
+            if validateLeptoQuarkCouplings(couplings, leptoquark_model):
+                leptoquark_parameters, _ = validateInputData(leptoquark_model, leptoquark_mass, couplings, ignore_single_pair_processes, significance, systematic_error, extra_width, luminosity)
+                leptoquark_parameters.couplings_values = [" ".join(["0"] * len(couplings))]
+                sortCouplingsAndValuesInteractive(leptoquark_parameters)
+                calculate(leptoquark_parameters, InputMode.INTERACTIVE)
         elif s[0].strip().lower() in ["exit", "q", "quit", "exit()", ".exit", "e"]:
             return
         elif s[0].strip() == "":
