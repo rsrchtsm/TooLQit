@@ -14,7 +14,7 @@
              Calculator for LHC limits         ║
                  on leptoquarks                ║
                                      ══════════╝
-                * Version 1.0.0 *     
+                * Version 1.0.1 *     
 
 #### _LHC Dileption Limits Calculator_
 
