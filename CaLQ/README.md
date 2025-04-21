@@ -53,7 +53,8 @@ The list of valid commands are:
 
 - `import_model=` to specify which leptoquark model to use.
 - `mass=` should be an integer between 1000 and 3000 (inclusive).
-- `couplings=` should list couplings in the format _LMxyL_ or _LMxyR_ where _x_ is the quark number and _y_ is the lepton number and the last _L_ or _R_ denote left or right handedness respectively.
+- `couplings=` should list couplings in the correct format as mentioned in the paper [arXiv:2412.19729](https://arxiv.org/abs/2412.19729). <br>
+For example, _X10LL[3,3]_ for $U_1$ LQ ( _Y10LL[3,3]_ if $S_1$ LQ ) where, _L_ or _R_ denote left or right handedness respectively.
 - `significance=` takes values 1 or 2.
 - `extra_width=` take any positive value. In case of an additional
 decay mode, you can input extra width
