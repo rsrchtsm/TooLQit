@@ -1,3 +1,3 @@
-V1.0.1: Changes
+Version 1.0.1: Changes
 - Added tab-autocompletion to terminal commands.
-- Minor bug fixex.
+- Minor bug fixes.
