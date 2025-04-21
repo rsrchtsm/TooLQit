@@ -40,8 +40,8 @@ python3 calq.py
 You will be greeted with CaLQ banner and a list of available commands. The prompt will be `calq > `. Example commands include:
 ```
 calq > import_model= U1
-calq > mass= 1234.5
-calq > couplings= LM23L LM33R
+calq > mass= 1500.0
+calq > couplings= X10LL[3,3] 
 calq > significance= 2
 calq > ignore_single_pair= yes
 calq > systematic_error= 0.1
